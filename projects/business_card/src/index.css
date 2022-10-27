@@ -1,13 +1,109 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+img {
+  display: block;
+}
+
+body {
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  color: whitesmoke;
+  background-color: #24252b;
+  width: 100%;
+  justify-content: center;
+}
+
+.App {
+  background-color: #1a1c22;
+  margin: 2rem;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px black;
+  min-width: 350px;
+  max-width: 80vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  max-height: 60%;
+}
+
+.Info .profilepic {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem 1rem 0 0;
+  margin-bottom: 1rem;
+}
+
+.Info h1 {
+  font-weight: 700;
+  margin-bottom: 0.2rem
+}
+
+.Info .title {
+  margin-bottom: 1rem;
+}
+
+.Info .buttons {
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  column-gap: 2rem;
+}
+
+.Info .buttons a {
+  display: flex;
+  text-decoration: none;
+  min-width: 120px;
+  height: 50px;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 0 5px 0.5px black;
+  justify-content: center;
+  align-items: center;
+}
+
+.Info .buttons .email, .email:visited {
+  background-color: whitesmoke;
+  color: #222;
+  font-weight: 500;
+}
+
+.Info .buttons .email .emailpic {
+  width: 2.5rem;
+  height: auto;
+  margin: 0;
+}
+
+.Info .buttons .email .emailtext {
+  margin-right: 0.4rem;
+}
+
+.Info .buttons .linkedin, .linkedin:visited {
+  background-color: #0a66c2;
+  color: white;
+  font-weight: 500;
+}
+
+.Info .buttons .linkedin .linkedinpic {
+  width: 7rem;
+  height: auto;
+  margin: 0;
+}
+
+.About {
+  text-align: left;
+  padding: 0 40px 40px 40px;
+  max-width: 100%;
 }
