@@ -12,10 +12,12 @@
 
 .name {
     padding-bottom: 0.3rem;
+    font-size: max(min(8vw, 2.5rem), 1.5rem);
 }
 
 .title {
     color: rgb(253, 184, 176);
+    font-size: max(min(4vw, 1.1rem), 0.75rem);
 }
 
 .buttons {
