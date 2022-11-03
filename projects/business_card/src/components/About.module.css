@@ -11,3 +11,14 @@
     font-size: 1.05rem;
     overflow-wrap: break-word;
 }
+
+@media screen and (max-width: 23em) {
+    .About h2 {
+        font-size: 1.35em;
+    }
+
+    .About p {
+        font-size: 0.95rem;
+        overflow-wrap: break-word;
+    }
+}

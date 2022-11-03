@@ -12,12 +12,12 @@
 
 .name {
     padding-bottom: 0.3rem;
-    font-size: max(min(8vw, 2.5rem), 1.5rem);
+    font-size: max(min(8vw, 2.5rem), 1.7rem);
 }
 
 .title {
     color: rgb(253, 184, 176);
-    font-size: max(min(4vw, 1.1rem), 0.75rem);
+    font-size: max(min(4vw, 1.1rem), 0.85rem);
 }
 
 .buttons {
@@ -75,6 +75,11 @@
 }
 
 @media screen and (max-width: 23em) {
+
+    .buttons {
+        margin: 1.2rem 0;
+    }
+
     .buttons a {
         width: 5rem;
         height: 2.5rem;

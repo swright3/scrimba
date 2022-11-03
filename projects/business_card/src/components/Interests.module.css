@@ -1,6 +1,6 @@
 .Interests {
     width: 80%;
-    margin: 0.5rem auto 1rem;
+    margin: 0.5rem auto 1.0825rem;
 }
 
 .Interests h2 {
@@ -30,4 +30,15 @@
     border: 2px solid grey;
     border-radius: 0.3rem;
     background-color: rgba(245, 245, 245, 0.137);
+}
+
+@media screen and (max-width: 23em) {
+
+    .Interests h2 {
+        font-size: 1.35em;
+    }
+
+    .container p {
+        font-size: 0.95rem;
+    }
 }

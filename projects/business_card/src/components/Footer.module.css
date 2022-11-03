@@ -9,3 +9,15 @@
 .Footer > * {
     margin: 0 auto;
 }
+
+.Footer img {
+    width: 2.8125rem;
+}
+
+@media screen and (max-width: 23em) {
+
+    .Footer img {
+        width: 2.25rem;
+    }
+
+}
