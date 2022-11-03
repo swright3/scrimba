@@ -45,10 +45,22 @@
 .email {
     color: rgb(80, 80, 80);
     background-color: whitesmoke;
-    background-image: url('../images/email.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+}
+
+.emailContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.email img {
+    width: 45px;
+}
+
+.email p {
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .linkedin {
