@@ -1,0 +1,13 @@
+.About {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.About h2 {
+    margin-bottom: 0.3rem;
+}
+
+.About p {
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+}

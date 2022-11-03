@@ -1,0 +1,19 @@
+.Interests {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.Interests h2 {
+    margin-bottom: 0.3rem;
+}
+
+.Interests ul {
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+    list-style-position: inside;
+    margin-bottom: 0.3rem;
+}
+
+.Interests li {
+    margin-bottom: 0.1rem;
+}

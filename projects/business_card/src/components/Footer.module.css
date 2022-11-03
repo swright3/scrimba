@@ -1,0 +1,11 @@
+.Footer {
+    background-color: #353b49;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0.7rem 1rem;
+    border-radius: 0 0 1.5rem 1.5rem;
+}
+
+.Footer > * {
+    margin: 0 auto;
+}
