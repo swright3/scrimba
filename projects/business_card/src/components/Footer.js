@@ -9,16 +9,16 @@ export default function Footer() {
     return (
         <div className={FooterCSS.Footer}>
              <a href='https://facebook.com'>
-                <img src={facebookpng} width='45px'/>
+                <img src={facebookpng} alt='facebook' width='45px'/>
              </a>
              <a href='https://twitter.com'>
-                <img src={twitterpng} width='45px'/>
+                <img src={twitterpng} alt='twitter' width='45px'/>
              </a>
              <a href='https://instagram.com'>
-                <img src={instapng} width='45px'/>
+                <img src={instapng} alt='instagram' width='45px'/>
              </a>
              <a href='https://github.com/swright3/'>
-                <img src={githubpng} width='45px'/>
+                <img src={githubpng} alt='github' width='45px'/>
              </a>
         </div>
     )
