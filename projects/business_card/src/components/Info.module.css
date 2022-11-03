@@ -31,20 +31,31 @@
 }
 
 .buttons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
     text-decoration: none;
     font-size: 1.2rem;
     width: 7rem;
-    line-height: 3rem;
-    margin: 0 auto;
+    height: 3rem;
     border-radius: 0.5rem;
 }
 
 .email {
     color: rgb(80, 80, 80);
     background-color: whitesmoke;
+    background-image: url('../images/email.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .linkedin {
     color: whitesmoke;
     background-color: #0a66c2;
+    background-image: url('../images/linkedin.png');
+    background-size: cover;
+    background-position: center;
+
 }

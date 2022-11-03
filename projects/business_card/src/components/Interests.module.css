@@ -1,13 +1,13 @@
 .Interests {
     width: 80%;
-    margin: 1rem auto;
+    margin: 0.5rem auto 1rem;
 }
 
 .Interests h2 {
     margin-bottom: 0.3rem;
 }
 
-.Interests ul {
+/* .Interests ul {
     font-size: 1.1rem;
     overflow-wrap: break-word;
     list-style-position: inside;
@@ -16,7 +16,7 @@
 
 .Interests li {
     margin-bottom: 0.1rem;
-}
+} */
 
 .container {
     display: flex;
