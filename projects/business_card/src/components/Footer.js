@@ -20,7 +20,6 @@ export default function Footer() {
              <a href='https://github.com/swright3/'>
                 <img src={githubpng} width='45px'/>
              </a>
-
         </div>
     )
 }

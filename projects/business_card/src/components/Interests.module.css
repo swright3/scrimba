@@ -17,3 +17,17 @@
 .Interests li {
     margin-bottom: 0.1rem;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container p {
+    white-space: nowrap;
+    padding: 0.15rem;
+    margin: 0.15rem;
+    border: 2px solid grey;
+    border-radius: 0.3rem;
+    background-color: rgba(245, 245, 245, 0.137);
+}
