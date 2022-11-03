@@ -71,3 +71,23 @@
     background-position: center;
 
 }
+
+@media screen and (max-width: 23em) {
+    .buttons a {
+        width: 5rem;
+        height: 2.5rem;
+    }
+
+    .emailContent {
+        padding-right: 3px;
+    }
+    
+    .email img {
+        width: 35px;
+    }
+    
+    .email p {
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+}
