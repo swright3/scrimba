@@ -1,0 +1,17 @@
+.Navbar{
+    background-color: #f55a5a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem;
+}
+
+.Navbar img {
+    width: max(min(10vw, 3rem), 1.5rem);
+}
+
+.Navbar h1 {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+}
