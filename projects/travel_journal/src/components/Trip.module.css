@@ -1,5 +1,32 @@
 .Trip {
-    max-width: 64rem;
+    max-width: 48rem;
     display: flex;
     column-gap: 1rem;
+    flex-shrink: 0 1;
+}
+
+.portrait {
+    border-radius: 0.625rem;
+    width: max(min(10rem, 20vw), 7rem);
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.location {
+    display: flex;
+    column-gap: 0.375rem;
+}
+
+.location a {
+    color: grey;
+    white-space: nowrap;
+}
+
+.info p {
+    font-size: 0.8rem;
 }
