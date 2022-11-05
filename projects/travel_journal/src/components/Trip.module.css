@@ -1,0 +1,5 @@
+.Trip {
+    max-width: 64rem;
+    display: flex;
+    column-gap: 1rem;
+}
