@@ -1,8 +1,7 @@
 .Trip {
     max-width: 48rem;
-    display: flex;
-    column-gap: 1rem;
-    flex-shrink: 0 1;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 }
 
 .portrait {
@@ -15,18 +14,33 @@
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    max-height: 9.5rem;
 }
 
 .location {
     display: flex;
     column-gap: 0.375rem;
+    align-items: center;
 }
 
 .location a {
     color: grey;
-    white-space: nowrap;
+    font-size: 0.8rem;
 }
 
-.info p {
+.info .desc {
+    margin-bottom: 0;
     font-size: 0.8rem;
+    overflow-y: scroll;
+}
+
+.info .date {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 35rem) {
+    .Trip {
+        column-gap: 0.5rem;
+    }
 }
