@@ -65,7 +65,7 @@ export default function Die(props) {
             style={styles}
             onClick={props.holdDice}
         >
-            {getDots()}
+            {props.dots ? getDots() : props.value}
         </div>
     )
 }
