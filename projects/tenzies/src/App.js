@@ -9,6 +9,7 @@ export default function App() {
     const [tenzies, setTenzies] = React.useState(false)
     const [rolls, setRolls] = React.useState(0)
     const [dots, setDots] = React.useState(true)
+    const [seconds, setSeconds] = React.useState(0)
     
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -18,6 +19,11 @@ export default function App() {
             setTenzies(true)
         }
     }, [dice])
+
+    React.useEffect(() => {
+      const interval = setInterval(() => setSeconds(prevSeconds => prevSeconds+1), 1000)
+      return () => clearInterval(interval)
+    }, [])
 
     function generateNewDie() {
         return {
@@ -37,6 +43,7 @@ export default function App() {
     
     function rollDice() {
         if(!tenzies) {
+            setRolls(prevRolls => prevRolls + 1)
             setDice(oldDice => oldDice.map(die => {
                 return die.isHeld ? 
                     die :
@@ -44,7 +51,9 @@ export default function App() {
             }))
         } else {
             setTenzies(false)
+            setRolls(0)
             setDice(allNewDice())
+            setSeconds(0)
         }
     }
     
@@ -70,6 +79,10 @@ export default function App() {
         />
     ))
 
+    function formatSeconds(secs) {
+      return `${Math.floor(secs/60)}:${secs%60}`
+    }
+
     const sliderStyle = {float: dots ? "left" : "right"}
     
     return (
@@ -90,6 +103,10 @@ export default function App() {
             >
                 {tenzies ? "New Game" : "Roll"}
             </button>
+            <section className='stats'>
+              <h2 className="rollCounter">Rolls: {rolls}</h2>
+              <h2 className='timeCounter'>Time: {formatSeconds(seconds)}</h2>
+            </section>
         </main>
     )
 }
