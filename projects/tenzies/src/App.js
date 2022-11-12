@@ -10,6 +10,7 @@ export default function App() {
     const [rolls, setRolls] = React.useState(0)
     const [dots, setDots] = React.useState(true)
     const [seconds, setSeconds] = React.useState(0)
+    const [bestTime, setBestTime] = React.useState(0)
     
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -17,10 +18,13 @@ export default function App() {
         const allSameValue = dice.every(die => die.value === firstValue)
         if (allHeld && allSameValue) {
             setTenzies(true)
+            seconds < bestTime && setBestTime(seconds)
         }
     }, [dice])
 
     React.useEffect(() => {
+      const best = localStorage.getItem('bestTime')
+      best > 0 ? setBestTime(best) : setBestTime(3599)
       const interval = setInterval(() => setSeconds(prevSeconds => prevSeconds+1), 1000)
       return () => clearInterval(interval)
     }, [])
@@ -107,6 +111,7 @@ export default function App() {
               <h2 className="rollCounter">Rolls: {rolls}</h2>
               <h2 className='timeCounter'>Time: {formatSeconds(seconds)}</h2>
             </section>
+            <h2 className='bestTime'>Best time: {formatSeconds(bestTime)}</h2>
         </main>
     )
 }
