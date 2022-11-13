@@ -93,7 +93,7 @@ export default function App() {
         <main>
             {tenzies && <Confetti />}
             <button className="dot-slider" onClick={toggleDots}>
-              <div className="dot-slider-inner" style={sliderStyle}></div>
+              <div className={`dot-slider-inner-${dots ? 'left' : 'right'}`}></div>
             </button>
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. 
