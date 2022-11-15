@@ -1,1 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Irish+Grover&display=swap');
+
+.Question {
+    border-radius: 2rem;
+    background-color: rgba(114, 122, 240, 0.35);
+    display: grid;
+    padding: 0.5rem 0;
+    border: none;
+}
+
+.questionUpper {
+    display: flex;
+    gap: 0.25rem;
+    margin: 1rem 1rem 0.3rem;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #727af0;
+    border: 5px solid #4a50a0;
+    border-radius: 1.5rem;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.answers {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1rem;
+    align-items: center;
+    grid-template-rows: repeat(4, 1fr);
+}
+

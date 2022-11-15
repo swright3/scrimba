@@ -51,3 +51,24 @@
 
 /* Quiz page styles */
 
+.App main {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 1.5rem;
+    max-width: 50rem;
+    margin: 1.5rem;
+    min-width: 18rem;
+
+}
+
+#submit, #reset {
+    border: none;
+    background-color: #4a50a0;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+}
+
