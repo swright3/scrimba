@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Irish+Grover&display=swap');
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro h1 {
+    color: #727af0;
+    font-family: 'Irish Grover', cursive;
+}
+
+#questionMark, #exclamationMark {
+    position: fixed;
+    z-index: -1;
+    width: 95vw;
+    height: 95vw;
+}
+
+#questionMark {
+    top: -85px;
+    right: -90px;
+}
+
+#exclamationMark {
+    bottom: -85px;
+    left: -95px;
+}
