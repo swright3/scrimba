@@ -17,6 +17,21 @@
     left: -95px;
 }
 
+main, .intro {
+    animation-name: FadeIn;
+    animation-duration: 1.5s;
+    transition-timing-function: linear;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* Title page styles */
 
 .intro {
@@ -72,3 +87,9 @@
     border-radius: 2rem;
 }
 
+#score {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #4a50a0;
+    font-weight: bold;
+}

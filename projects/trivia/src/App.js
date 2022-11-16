@@ -8,7 +8,7 @@ function App() {
   const [questionData, setQuestionData] = useState([])
   const [randomizedAnswers, setRandomizedAnswers] = useState([])
   const [selectedAnswer, setSelectedAnswer] = useState([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
-  const [gameOver, setGameOver] = useState(false)
+  const [gameOver, setGameOver] = useState(true)
 
   function startQuiz() {
     fetch('https://opentdb.com/api.php?amount=10&type=multiple')
@@ -16,11 +16,10 @@ function App() {
       .then(data => {
         setQuestionData(data.results)
         setRandomizedAnswers(data.results.map(question => randomizeAnswers(question.correct_answer, question.incorrect_answers)))
-        setRandomizedAnswers([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
+        setSelectedAnswer([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
         toggleGameOver()
       })
       .catch(err => console.log(err))
-    console.log(randomizedAnswers)
   }
 
   function generateQuestionArray() {
@@ -74,6 +73,11 @@ function App() {
     setQuestionData([])
   }
 
+  function calculateScore() {
+    return questionData.reduce((score, question, index) => question.correct_answer === randomizedAnswers[index][selectedAnswer[index]-1]
+    ? score+1 : score,0)
+  }
+
   return (
     <div className={AppCSS.App}>
       <img src={questionMarkBg} alt='question mark' width='200px' height='200px' id={AppCSS.questionMark}/>
@@ -82,11 +86,11 @@ function App() {
       ? 
       <main>
         {generateQuestionArray()}
+        {gameOver && <h2 id={AppCSS.score}>You scored {calculateScore()}/10 correct answers</h2>}
         {!gameOver
         ? <button id={AppCSS.submit} onClick={handleSubmit}>Check Answers</button>
         : <button id={AppCSS.reset} onClick={resetQuiz}>Reset</button>
         }
-        
       </main>
       : 
       <div className={AppCSS.intro}>
