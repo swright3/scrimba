@@ -1,35 +1,98 @@
 
 
-@keyframes FadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+@keyframes FadeInAfterTitle {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
+@keyframes FadeInMoveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(5rem);
+    }
+    60% {
+        transform: translateY(5rem);
+    }
+    100% {
+        transform: translateY(-1rem);
+    }
+  }
+
 .Intro {
-    animation-name: FadeIn;
-    animation-duration: 1.5s;
-    transition-timing-function: linear;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }
 
-.Intro h1 {
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(4rem);
+}
+
+.title h1 {
     color: #727af0;
     font-family: 'Irish Grover', cursive;
     font-size: 4rem;
 }
 
-.Intro h2 {
+.title h2 {
     color: #727af0;
     font-size: 1rem;
     margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: FadeInAfterTitle;
+    animation-duration: 1500ms;
+}
+
+form > :not(button) {
+    margin-bottom: 1rem;
+    width: 80%;
+    border: 2px solid #727af0;
+}
+
+form > :nth-child(3) {
+    margin-bottom: 2rem;
+}
+
+input, input:focus-visible, input:focus {
+    font-size: 1rem;
+    border-radius: 3rem;
+    text-indent: 1rem;
+    line-height: 2rem;
+    color: #727af0;
+    font-weight: bold;
+    outline: none;
+}
+
+select {
+    text-indent: 0.15rem;
+    padding-block: 0.3rem;
+    background-color: white;
+    color: #727af0;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 0.3rem;
 }
 
 .Intro button {
@@ -40,4 +103,10 @@
     color: white;
     font-weight: bold;
     padding: 0.75rem 1.25rem;
+}
+
+.titleAnimation {
+    animation: FadeInMoveUp;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
 }
