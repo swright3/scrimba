@@ -20,7 +20,7 @@ function App() {
 
   const [formData, setFormData] = useState({
     name: '',
-    difficulty: 'mixed',
+    difficulty: '',
     category: 'any'
   })
 
@@ -29,8 +29,12 @@ function App() {
   resets randomizedAnswers, selectedAnswer, and gameOver.*/
   function startQuiz(event) {
     event.preventDefault()
-    const apiUrl = `https://opentdb.com/api.php?amount=10`
-    fetch('https://opentdb.com/api.php?amount=10&category=9&type=multiple')
+    if (formData.difficulty === '') {
+      alert('Please choose a difficulty')
+      return
+    }
+    const apiUrl = urlConstructor()
+    fetch(apiUrl)
       .then(res => res.json())
       .then(data => {
         setQuestionData(data.results)
@@ -39,6 +43,28 @@ function App() {
         toggleGameOver()
       })
       .catch(err => console.log(err))
+  }
+
+  function urlConstructor() {
+    const amount = '?amount=10'
+    let category = '&category=';
+    switch (formData.category) {
+      case 'generalKnowledge':
+        category += '9'
+        break
+      case 'scienceAndNature':
+        category += '17'
+        break
+      case 'sports':
+        category += '21'
+        break
+      default:
+        category = ''
+    }
+    let difficulty;
+    formData.difficulty === 'mixed' ? difficulty = '' : difficulty= '&difficulty=' + formData.difficulty;
+    console.log(`https://opentdb.com/api.php${amount}${category}${difficulty}&type=multiple`)
+    return `https://opentdb.com/api.php${amount}${category}${difficulty}&type=multiple`
   }
 
   /*Maps over the questions in questionData and returns an array of <Question /> components.*/

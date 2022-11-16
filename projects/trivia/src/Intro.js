@@ -13,10 +13,11 @@ export default function Intro(props) {
             <form>
                 <input type='text' placeholder='Name' onChange={handleChange} name='name' value={formData.name}/>
                 <select id='difficulty' value={formData.difficulty} onChange={handleChange} name='difficulty'>
-                    <option value='mixed'>Mixed</option>
+                    <option value=''>Choose a difficulty</option>
                     <option value='easy'>Easy</option>
                     <option value='medium'>Medium</option>
                     <option value='hard'>Hard</option>
+                    <option value='mixed'>Mixed</option>
                 </select>
                 <select id='category' value={formData.category} onChange={handleChange} name='category'>
                     <option value='any'>All Categories</option>
