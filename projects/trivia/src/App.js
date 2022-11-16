@@ -22,7 +22,8 @@ function App() {
   /*Called when the start quiz button is pressed on the title screen. Fetches a new set of questions and
   resets randomizedAnswers, selectedAnswer, and gameOver.*/
   function startQuiz() {
-    fetch('https://opentdb.com/api.php?amount=10&type=multiple')
+    console.log('hi')
+    fetch('https://opentdb.com/api.php?amount=10&category=9')
       .then(res => res.json())
       .then(data => {
         setQuestionData(data.results)
