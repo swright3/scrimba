@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import AppCSS from './App.module.css';
 import questionMarkBg from './images/question-mark-bg.png'
 import exclamationMarkBg from './images/exclamation-mark-bg.png'
