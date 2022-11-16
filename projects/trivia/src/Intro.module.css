@@ -1,0 +1,43 @@
+
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.Intro {
+    animation-name: FadeIn;
+    animation-duration: 1.5s;
+    transition-timing-function: linear;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Intro h1 {
+    color: #727af0;
+    font-family: 'Irish Grover', cursive;
+    font-size: 4rem;
+}
+
+.Intro h2 {
+    color: #727af0;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.Intro button {
+    border: none;
+    font-size: 1rem;
+    border-radius: 1.5rem;
+    background-color: #727af0;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.25rem;
+}
