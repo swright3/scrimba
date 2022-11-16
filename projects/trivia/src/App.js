@@ -18,12 +18,19 @@ function App() {
   played it is true. Used to render the score and reset button, and by the Answer component to determine styling.*/
   const [gameOver, setGameOver] = useState(true)
 
+  const [formData, setFormData] = useState({
+    name: '',
+    difficulty: 'mixed',
+    category: 'any'
+  })
+
 
   /*Called when the start quiz button is pressed on the title screen. Fetches a new set of questions and
   resets randomizedAnswers, selectedAnswer, and gameOver.*/
-  function startQuiz() {
-    console.log('hi')
-    fetch('https://opentdb.com/api.php?amount=10&category=9')
+  function startQuiz(event) {
+    event.preventDefault()
+    const apiUrl = `https://opentdb.com/api.php?amount=10`
+    fetch('https://opentdb.com/api.php?amount=10&category=9&type=multiple')
       .then(res => res.json())
       .then(data => {
         setQuestionData(data.results)
@@ -104,6 +111,14 @@ function App() {
     ? score+1 : score,0)
   }
 
+  function handleChange(event) {
+    const {name, value} = event.target
+    setFormData(prevData => ({
+        ...prevData,
+        [name]: value
+    }))
+  }
+
   /*When there are no questions, the title screen is rendered. Otherwise the questions are rendered.*/
   return (
     <div className={AppCSS.App}>
@@ -120,7 +135,7 @@ function App() {
         }
       </main>
       : 
-      <Intro startQuiz={startQuiz}/>
+      <Intro handleChange={handleChange} formData={formData} startQuiz={startQuiz}/>
       }
     </div>
   );

@@ -1,21 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import IntroCSS from './Intro.module.css'
 
 export default function Intro(props) {
-    const [formData, setFormData] = useState({
-        name: '',
-        difficulty: 'mixed',
-        category: 'any'
-    })
-    const {startQuiz} = props
-
-    function handleChange(event) {
-        const {name, value} = event.target
-        setFormData(prevData => ({
-            ...prevData,
-            [name]: value
-        }))
-    }
+    const {startQuiz, handleChange, formData} = props
 
     return (
         <div className={IntroCSS.Intro}>
