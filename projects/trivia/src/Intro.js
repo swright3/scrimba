@@ -4,6 +4,7 @@ import IntroCSS from './Intro.module.css'
 export default function Intro(props) {
     const {startQuiz, handleChange, formData} = props
 
+    /*Consists of the title and a form used to determine the category and difficulty of the quiz.*/
     return (
         <div className={IntroCSS.Intro}>
             <div className={`${IntroCSS.title} ${IntroCSS.titleAnimation}`}>

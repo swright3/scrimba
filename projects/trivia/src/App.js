@@ -4,6 +4,7 @@ import questionMarkBg from './images/question-mark-bg.png'
 import exclamationMarkBg from './images/exclamation-mark-bg.png'
 import Question from './Question';
 import Intro from './Intro'
+import {decode} from 'html-entities';
 
 function App() {
   /*questionData: An array of question objects fetched from the OTDB API.*/
@@ -17,26 +18,17 @@ function App() {
   /*gameOver: A boolean. On the title screen and when results are shown it is true. When the quiz is being
   played it is true. Used to render the score and reset button, and by the Answer component to determine styling.*/
   const [gameOver, setGameOver] = useState(true)
-
+  /*formData: An object that stores the state of the form on the intro page. Used by urlConstructor()
+  to determine the request sent to the trivia api.*/
   const [formData, setFormData] = useState({
     name: '',
     difficulty: '',
     category: 'any'
   })
 
-  String.prototype.decodeHTML = function() {
-    var map = {"gt":">" /* , … */};
-    return this.replace(/&(#(?:x[0-9a-f]+|\d+)|[a-z]+);?/gi, function($0, $1) {
-        if ($1[0] === "#") {
-            return String.fromCharCode($1[1].toLowerCase() === "x" ? parseInt($1.substr(2), 16)  : parseInt($1.substr(1), 10));
-        } else {
-            return map.hasOwnProperty($1) ? map[$1] : $0;
-        }
-    });
-  };
-
   /*Called when the start quiz button is pressed on the title screen. Fetches a new set of questions and
-  resets randomizedAnswers, selectedAnswer, and gameOver.*/
+  resets randomizedAnswers, selectedAnswer, and gameOver. When the questions have been fetched, all of the
+  text is parsed to decode the html entities.*/
   function startQuiz(event) {
     event.preventDefault()
     if (formData.difficulty === '') {
@@ -47,20 +39,25 @@ function App() {
     fetch(apiUrl)
       .then(res => res.json())
       .then(data => {
-        setQuestionData(data.results.map(question => ({
+        setQuestionData(data.results.map(question => {
+          for (let i = 0; i < question.incorrect_answers.length; i++) {
+            question.incorrect_answers[i] = decode(question.incorrect_answers[i])
+          }
+          console.log(question.correct_answer)
+          question.correct_answer = decode(question.correct_answer)
+          return {
           ...question,
-          question: question.question.decodeHTML().replace(/&quot;/g,'"'),
-          correct_answer: question.correct_answer.decodeHTML().replace(/&quot;/g,'"'),
-          incorrect_answers: question.incorrect_answers.map(answer => answer.decodeHTML().replace(/&quot;/g,'"'))
-        })))
-        setRandomizedAnswers(data.results.map(question => {console.log(question.incorrect_answers)
-          return randomizeAnswers(question.correct_answer, question.incorrect_answers)}))
+          question: decode(question.question)
+        }}))
+        setRandomizedAnswers(data.results.map(question => randomizeAnswers(question.correct_answer, question.incorrect_answers)))
         setSelectedAnswer([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
         toggleGameOver()
       })
       .catch(err => console.log(err))
   }
 
+  /*Constructs the url used to fetch the questions from the api. This can change the amount of questions,
+  the category, and the difficulty. In future could also change from multiple choice to true/false.*/
   function urlConstructor() {
     const amount = '?amount=10'
     let category = '&category=';

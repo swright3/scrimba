@@ -1,16 +1,6 @@
-
-
-@keyframes FadeInAfterTitle {
-    0% {
-        opacity: 0;
-    }
-    60% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+/*FadeInMoveUp describes the animation for the title. It fades in, stops for a moment and then moves
+upwards to give the form room. FadeInAfterTitle applies to the form, it only fades in once the title
+has moved upwards.*/
 
 @keyframes FadeInMoveUp {
     0% {
@@ -27,7 +17,19 @@
     100% {
         transform: translateY(-1rem);
     }
-  }
+}
+
+@keyframes FadeInAfterTitle {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 .Intro {
     display: flex;
