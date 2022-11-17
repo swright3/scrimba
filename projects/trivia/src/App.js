@@ -24,6 +24,16 @@ function App() {
     category: 'any'
   })
 
+  String.prototype.decodeHTML = function() {
+    var map = {"gt":">" /* , … */};
+    return this.replace(/&(#(?:x[0-9a-f]+|\d+)|[a-z]+);?/gi, function($0, $1) {
+        if ($1[0] === "#") {
+            return String.fromCharCode($1[1].toLowerCase() === "x" ? parseInt($1.substr(2), 16)  : parseInt($1.substr(1), 10));
+        } else {
+            return map.hasOwnProperty($1) ? map[$1] : $0;
+        }
+    });
+  };
 
   /*Called when the start quiz button is pressed on the title screen. Fetches a new set of questions and
   resets randomizedAnswers, selectedAnswer, and gameOver.*/
@@ -37,8 +47,14 @@ function App() {
     fetch(apiUrl)
       .then(res => res.json())
       .then(data => {
-        setQuestionData(data.results)
-        setRandomizedAnswers(data.results.map(question => randomizeAnswers(question.correct_answer, question.incorrect_answers)))
+        setQuestionData(data.results.map(question => ({
+          ...question,
+          question: question.question.decodeHTML().replace(/&quot;/g,'"'),
+          correct_answer: question.correct_answer.decodeHTML().replace(/&quot;/g,'"'),
+          incorrect_answers: question.incorrect_answers.map(answer => answer.decodeHTML().replace(/&quot;/g,'"'))
+        })))
+        setRandomizedAnswers(data.results.map(question => {console.log(question.incorrect_answers)
+          return randomizeAnswers(question.correct_answer, question.incorrect_answers)}))
         setSelectedAnswer([-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
         toggleGameOver()
       })
