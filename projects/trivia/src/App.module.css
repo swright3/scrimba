@@ -17,6 +17,41 @@
     left: -95px;
 }
 
+@media screen and (min-width: 600px) {
+    #questionMark, #exclamationMark {
+        position: fixed;
+        z-index: -1;
+        width: 65vw;
+        height: 65vw;
+        max-width: 50rem;
+        max-height: 50rem;
+        /* width: clamp(22rem, 60vw, 35rem);
+        height: clamp(22rem, 60vw, 35rem); */
+    }
+
+    #questionMark {
+        top: calc(30px - 18vw);
+        right: calc(20px - 18vw);
+    }
+    
+    #exclamationMark {
+        bottom: calc(30px - 18vw);
+        left: calc(20px - 18vw);
+    }
+}
+
+@media screen and (min-width: 1230px) {
+    #questionMark {
+        top: -191px;
+        right: -201px;
+    }
+    
+    #exclamationMark {
+        bottom: -191px;
+        left: -201px;
+    }
+}
+
 /* Quiz page styles */
 
 @keyframes FadeIn {

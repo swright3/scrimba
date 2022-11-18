@@ -6,6 +6,7 @@
     display: grid;
     padding: 0.5rem 0;
     border: none;
+    box-shadow: 3px 3px 5px #4a50a0c4;
 }
 
 .questionUpper {
@@ -23,10 +24,14 @@
     text-align: center;
 }
 
+.description {
+    font-size: 1.25rem;
+}
+
 .answers {
     display: grid;
     gap: 1.5rem;
-    margin: 1rem;
+    margin: 1rem 1.2rem;
     grid-template-rows: repeat(4, 1fr);
 }
 
