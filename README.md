@@ -14,3 +14,8 @@ Tenzies project
 -A simple dice game where you have to get ten of the same number
 -One of the final projects of the react course, includes effects and hooks
 -Deployed build can be accessed at https://sams-tenzies-game.netlify.app/
+
+Quizzical project
+-A trivia web app that serves 10 multiple choice questions
+-Questions fetched using the Open Trivia Database API
+-Deployed build can be accessed at https://sams-quizzical-trivia-app.netlify.app/
